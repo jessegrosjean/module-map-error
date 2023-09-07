@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Setapp",
+        "repositoryURL": "https://github.com/MacPaw/Setapp-framework.git",
+        "state": {
+          "branch": null,
+          "revision": "b0f5c4875a6c5256364fcfe97ce207517bdfb0a6",
+          "version": "3.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
