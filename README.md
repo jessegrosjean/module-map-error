@@ -12,6 +12,20 @@ If I add one package or the other on own then everything works fine. When I add 
 Multiple commands produce '...Xcode/DerivedData/Workspace-ejeewzlcxbwwtbbihtdvnvgjkysh/Build/Products/Debug/include/module.modulemap'
 ```
 
-To fix and make the project compile you can remove Setapp from the App targets Frameworks, Libraries, and Embedded content section.
+# How to fix
 
-I'm not sure how to work around this problem. Thoughts?
+I'm leaving the error in `main` branch, you can see changes required to fix in the `fix` branch. The fix is that in each built architecture in the RustXcframework.xcframework you need to put the module.modulemap, and other headers, into a specially named subfolder--the name header minus the .h.
+
+For example move contents of:
+
+```
+RustXcframework.xcframework/macos-arm64_x86_64/Headers/
+```
+
+to:
+
+```
+RustXcframework.xcframework/macos-arm64_x86_64/Headers/my-rust-lib/
+```
+
+You will need to repeat this for each architecture.
